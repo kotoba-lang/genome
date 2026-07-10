@@ -1,5 +1,7 @@
 # kotoba Genome
 
+[![ci](https://github.com/kotoba-lang/genome/actions/workflows/ci.yml/badge.svg)](https://github.com/kotoba-lang/genome/actions/workflows/ci.yml)
+
 Open-source genomics workflow workbench as EDN data + portable CLJC pipeline model.
 
 This repository follows the kotoba industrial-app pattern:
@@ -14,6 +16,19 @@ Pages: https://kotoba-lang.github.io/genome/
 ## Scope
 
 This is an OSS workbench skeleton for 遺伝子/バイオインフォマティクス. It does not claim proprietary compatibility with commercial systems. It focuses on open artifact registries, policy-gated runners, coverage/maturity scoring, and EDN handoff.
+
+## Test
+
+```sh
+clojure -M:test
+clojure -M:lint
+```
+
+`test/kotoba/genome/` covers the domain engine (`core.cljc`: scoring,
+artifact classification, runner-plan construction, coverage/maturity
+review), the host dry-run runner (`runner.clj`: executable whitelist
+enforcement, dry-run-by-default safety), and the pure Hiccup/CSS UI
+helpers (`ui.cljc`).
 
 ## Verify
 
