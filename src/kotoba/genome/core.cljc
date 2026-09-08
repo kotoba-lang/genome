@@ -1,6 +1,6 @@
 (ns kotoba.genome.core
   "Data-driven kotoba Genome domain model. Pure CLJC, host runners injected outside the browser."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def stages ["Sample intake" "Read QC" "Alignment" "Variant calling" "Annotation" "Interpretation" "Report" "Archive"])
 
@@ -16,7 +16,7 @@
   (when filename
     (let [parts (str/split filename #"\.")]
       (when (< 1 (count parts))
-        (str "." (str/lower-case (last parts)))))))
+        (str "." (str/lower (last parts)))))))
 
 (defn classify-artifact [filename]
   (let [ext (extension filename)]
