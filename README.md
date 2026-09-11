@@ -20,8 +20,8 @@ This is an OSS workbench skeleton for 遺伝子/バイオインフォマティ�
 ## Test
 
 ```sh
-clojure -M:test
-clojure -M:lint
+kbb -M:test
+kbb -M:lint
 ```
 
 `test/kotoba/genome/` covers the domain engine (`core.cljc`: scoring,
@@ -33,6 +33,6 @@ helpers (`ui.cljc`).
 ## Verify
 
 ```sh
-clojure -M -e '(load-file "src/kotoba/genome/core.cljk") (println :ok)'
+kbb -M -e '(load-file "src/kotoba/genome/core.cljk") (println :ok)'
 python3 -m http.server 8765 --directory docs
 ```
