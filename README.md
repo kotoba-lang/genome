@@ -7,8 +7,8 @@ Open-source genomics workflow workbench as EDN data + portable CLJC pipeline mod
 This repository follows the kotoba industrial-app pattern:
 
 - `resources/genome/domain.edn` is the data registry.
-- `src/kotoba/genome/core.cljc` is the pure portable domain engine.
-- `src/kotoba/genome/runner.clj` is a conservative host dry-run runner.
+- `src/kotoba/genome/core.cljk` is the pure portable domain engine.
+- `src/kotoba/genome/runner.cljk` is a conservative host dry-run runner.
 - `docs/index.html` is the GitHub Pages workbench.
 
 Pages: https://kotoba-lang.github.io/genome/
@@ -33,6 +33,6 @@ helpers (`ui.cljc`).
 ## Verify
 
 ```sh
-clojure -M -e '(load-file "src/kotoba/genome/core.cljc") (println :ok)'
+clojure -M -e '(load-file "src/kotoba/genome/core.cljk") (println :ok)'
 python3 -m http.server 8765 --directory docs
 ```

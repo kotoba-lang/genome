@@ -104,6 +104,6 @@
     [:section#source.panel
      [:h2 "Data Sources"]
      [:p
-      [:a {:href "https://github.com/kotoba-lang/genome/blob/main/src/kotoba/genome/core.cljc"} "core.cljc"] " · "
-      [:a {:href "https://github.com/kotoba-lang/genome/blob/main/src/kotoba/genome/ui.cljc"} "ui.cljc"] " · "
+      [:a {:href "https://github.com/kotoba-lang/genome/blob/main/src/kotoba/genome/core.cljk"} "core.cljc"] " · "
+      [:a {:href "https://github.com/kotoba-lang/genome/blob/main/src/kotoba/genome/ui.cljk"} "ui.cljc"] " · "
       [:a {:href "https://github.com/kotoba-lang/genome/blob/main/resources/genome/domain.edn"} "domain.edn"]]]]])
