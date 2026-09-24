@@ -43,3 +43,17 @@
     (is (= :dry-run (:run/status (runner/execute! ready-adapter))))
     (let [bwa (assoc-in ready-adapter [:job.adapter/command :command/argv] ["bwa" "mem" "ref.fa" "reads.fq"])]
       (is (= :dry-run (:run/status (runner/execute! bwa)))))))
+
+(deftest exec!-reports-the-process-result-without-throwing
+  (testing "a whitelisted binary that is not installed is a :failed run, not a throw"
+    (let [bwa (assoc-in ready-adapter [:job.adapter/command :command/argv] ["bwa" "--no-such-flag"])
+          res (runner/exec! bwa)]
+      (is (= :runner/fastqc (:run/adapter res)))
+      (is (= :failed (:run/status res)))
+      (is (string? (:run/stdout res)))
+      (is (string? (:run/stderr res)))))
+  (testing "the allowlist is enforced again by kotoba.lang.process/exec itself"
+    (let [rogue (assoc-in ready-adapter [:job.adapter/command :command/argv] ["rm" "-rf" "/nonexistent-kotoba-test"])
+          res (runner/exec! rogue)]
+      (is (= :failed (:run/status res)))
+      (is (re-find #"exec rejected" (:run/stderr res))))))
