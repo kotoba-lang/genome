@@ -1,5 +1,5 @@
 (ns kotoba.genome.core-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kotoba.genome.core :as core]))
 
 (deftest extension-parsing

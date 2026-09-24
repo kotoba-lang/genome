@@ -1,5 +1,5 @@
 (ns kotoba.genome.runner-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kotoba.genome.runner :as runner]))
 
 (def ready-adapter

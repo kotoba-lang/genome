@@ -1,6 +1,6 @@
 (ns kotoba.genome.ui-test
   (:require [kotoba.lang.text :as str]
-            [clojure.test :refer [deftest is testing]]
+            [kotoba.test :refer [deftest is testing]]
             [kotoba.genome.core :as core]
             [kotoba.genome.ui :as ui]))
 
