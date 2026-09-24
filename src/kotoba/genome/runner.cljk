@@ -1,6 +1,6 @@
 (ns kotoba.genome.runner
   "Conservative host-side dry-run runner for kotoba Genome EDN plans."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [clojure.java.process :as p]))
 
 (def allowed #{"clojure" "fastqc" "bwa"})
