@@ -1,5 +1,5 @@
 (ns kotoba.genome.runner-test
-  (:require [kotoba.test :refer [deftest is testing]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is testing]]
             [kotoba.genome.runner :as runner]))
 
 (def ready-adapter
@@ -35,7 +35,7 @@
 (deftest execute!-refuses-non-whitelisted-executables
   (testing "an adapter whose argv[0] is not in the whitelist throws instead of running"
     (let [rogue (assoc-in ready-adapter [:job.adapter/command :command/argv] ["rm" "-rf" "/"])]
-      (is (thrown-with-msg? clojure.lang.ExceptionInfo #"not whitelisted"
+      (is (thrown-with-msg? kerror/ExceptionInfo #"not whitelisted"
                              (runner/execute! rogue))))))
 
 (deftest execute!-accepts-whitelisted-executables
